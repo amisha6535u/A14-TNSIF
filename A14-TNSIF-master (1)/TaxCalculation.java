@@ -1,0 +1,20 @@
+
+public class TaxCalculation {
+	//method to calculate Tax
+	    public void calculateTax(Person person) {
+	        if (person.getAge() > 65 || person.getGender().equalsIgnoreCase("female")) {
+	            person.setTax(0);
+	            System.out.println("Tax not applicable");
+	        } else {
+	            if (person.getIncome() <= 160000) {
+	                person.setTax(0);
+	            } else if (person.getIncome() > 160000 && person.getIncome() <= 500000) {
+	                person.setTax((int) ((person.getIncome() - 160000) * 0.10));
+	            } else if (person.getIncome() >= 500000 && person.getIncome() <= 800000) {
+	                person.setTax((int) ((person.getIncome() - 500000) * 0.20 + 34000));
+	            } else {
+	                person.setTax((int) ((person.getIncome() - 800000) * 0.30 + 94000));
+	            }
+	        }
+	    }
+}
